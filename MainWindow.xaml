@@ -5,8 +5,52 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Image_panorama"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        Title="Image panorama" Height="600
+        " Width="1000">
+
+    <Grid ShowGridLines="True">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80" ></RowDefinition>
+            <RowDefinition Height="25"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="25"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="70"></ColumnDefinition>
+            <ColumnDefinition Width="70"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Label Grid.Column="0" Content="Выберите режим работы" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="16"/>
+        <ComboBox Grid.Column="0" Margin="10,40,10,10" HorizontalAlignment="Center" Width="180" Height="30" 
+                  ItemsSource="{Binding WorkMode}" SelectedIndex="{Binding SelectedWorkMode}" />
+        <Button Grid.Column="1" Content="Открыть" Margin="5,5,5,5" FontSize="16"
+                Command="{Binding ClickCommand}" CommandParameter="OpenFiles"
+                IsEnabled="{Binding IsOpenFilesEnabled, Mode=TwoWay}"></Button>
+        <Button Grid.Column="2" Content="Выполнить" Margin="5,5,5,5" FontSize="16"
+                Command="{Binding ClickCommand}" CommandParameter="Run"
+                IsEnabled="{Binding IsRunEnabled, Mode=TwoWay}"></Button>
+        <Button Grid.Column="3" Content="Шаг назад" Margin="5,5,5,5" FontSize="16"
+                Command="{Binding ClickCommand}" CommandParameter="BackStep"
+                IsEnabled="{Binding IsBackStepEnabled, Mode=TwoWay}"></Button>
+        <Button Grid.Column="4" Content="Шаг вперед" Margin="5,5,5,5" FontSize="16"
+                Command="{Binding ClickCommand}" CommandParameter="Step"
+                IsEnabled="{Binding IsStepEnabled, Mode=TwoWay}"></Button>
+        <Button Grid.Column="5" Content="Сохранить" Margin="5,5,5,5" FontSize="16"
+                Command="{Binding ClickCommand}" CommandParameter="Save"
+                IsEnabled="{Binding IsSaveEnabled, Mode=TwoWay}"></Button>
+        <Button Grid.Column="6" Content="Параметры" Margin="5,5,5,5" FontSize="16"
+                Command="{Binding ClickCommand}" CommandParameter="Settings">
+        </Button>
+        <Button Grid.Column="7" Content="Информация" Margin="5,5,5,5" FontSize="16"
+                Command="{Binding ClickCommand}" CommandParameter="Info">
+        </Button>
+
+        <Image Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" Name="image1" Stretch="Uniform" VerticalAlignment="Top" Grid.ColumnSpan="3" />
+        <Image Grid.Column="5" Grid.Row="2" HorizontalAlignment="Left" Name="image2" Stretch="Uniform" VerticalAlignment="Top" Grid.ColumnSpan="3" />
     </Grid>
 </Window>

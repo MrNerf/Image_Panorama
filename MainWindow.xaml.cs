@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Image_panorama.MVVM;
 
 namespace Image_panorama
 {
@@ -20,9 +21,21 @@ namespace Image_panorama
     /// </summary>
     public partial class MainWindow : Window
     {
+        public MainWindowViewModel ViewModel
+        {
+            get
+            {
+                return DataContext as MainWindowViewModel;
+            }
+            set
+            {
+                DataContext = value;
+            }
+        }
         public MainWindow()
         {
             InitializeComponent();
+            this.DataContext = new MainWindowViewModel();
         }
     }
 }
